@@ -1,0 +1,84 @@
+﻿.active1 {
+  opacity: 0;
+  width: 0px;
+}
+body{
+    font-size: 20px;
+}
+#navbarCollapse a {
+  color: white!important;
+}
+.button-stylebar {
+    background-color: transparent!important;
+    border-color: transparent!important;
+}
+
+.card p {
+  font-size: 30px;
+}
+a {
+    color: grey !important;
+    text-decoration: none;
+}
+#exibicao {
+    margin: auto;
+    font-size: 25px;
+}
+
+.navbar-toggler {
+  border-color: white!important;
+  margin-left: auto;
+  width: 75px;
+  height: 75px;
+}
+#navbarCollapse ul {
+  padding-left: 0%;
+  margin-top: 20px;
+  font-size: 25px;
+}
+#navbarCollapse a {
+  font-family: "Impact", monospace;
+  font-size: 25px;
+  color: white!important;
+  text-decoration: none;
+  font-weight: 1000em;
+}
+.actionbar {
+  padding-left: 0%!important;
+}
+a:hover {
+    color: grey !important;
+    text-decoration: none !important;
+}
+p {
+    font-size: 17px;
+}
+.line {
+  margin-top: 0px;
+}
+#navbar {
+    background-color: transparent!important;
+}
+.content1 {
+  opacity: 0;
+  width: 0px;
+}
+#footer-datas a {
+  font-size: 20px;
+}
+#footer-datas p {
+  font-size: 11px;
+}
+#title {
+  animation: typing 4s steps(50) infinite normal;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: auto;
+}
+@keyframes typing {
+   from {
+     width: 0;
+   } to {
+     width: 100%;
+   }
+}

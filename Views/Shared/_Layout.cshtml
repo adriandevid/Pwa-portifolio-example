@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AdrianP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        <div id="content" style="color: white; background-color: black; position: unset; width: -webkit-fill-available;">
+            <nav class="navbar navbar-expand-md fixed-top" style="background-color: black; opacity: .5;">
+                <button class="navbar-toggler" type="button" id="navbarbutton" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-align-justify" style="color: white;"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto" id="navigatorsbar">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Temas<span class="sr-only">(atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Projetos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Serviços</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" id="exibicao">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <hr class="clearfix w-100 line">
+    <footer class="page-footer font-small stylish-color-dark pt-4" id="footer-datas">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-2 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Redes Sociais:</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!"><i class="fa fa-instagram"></i>&nbsp;Adrian_devid_iii</a>
+                        </li>
+                        <li>
+                            <a href="#!"><i class="fa fa-facebook-f"></i>&nbsp;Adrian Devid</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto" style="font-size: 11px;">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contato:</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!"><i class="fa fa-at"></i>&nbsp;adriandevid36@gmail.com</a>
+                        </li>
+                        <li>
+                            <a href="#!"><i class="fa fa-whatsapp"></i>&nbsp;+55 79 999204871</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

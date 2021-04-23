@@ -1,0 +1,20 @@
+{
+    "name": "ADport",
+    "short_name": "ADport",
+    "description": "",
+  
+    "icons": [
+      {
+        "src": "/image/IconeDeapp192x192.png",
+        "sizes": "192x192"
+      },
+  
+      {
+        "src": "/image/inconeDeApp 512.png",
+        "sizes": "512x512"
+      }
+    ],
+  
+    "display": "standalone",
+    "start_url": "/"
+}
