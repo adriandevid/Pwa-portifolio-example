@@ -22,5 +22,6 @@
 		$('#navigatorsbar').toggleClass('actionbar');
 	});
     $('body').css('zoom', 0.6)
-
 })(jQuery);
+
+'serviceWorker'in navigator&&navigator.serviceWorker.register('./serviceworker', { scope: './' });
