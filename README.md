@@ -12,5 +12,5 @@ https://adport.herokuapp.com/
 3. entre na pasta do projeto através do cmd e execute o comando *dotnet watch run*;
 4. E pronto, a aplicação estará sendo executada na sua maquina na porta 5001;
 
-#Transformação para APK
+# Transformação para APK
 https://appmaker.xyz/pwa-to-apk/verification/F99qRJbQYLcsXDenikU4
