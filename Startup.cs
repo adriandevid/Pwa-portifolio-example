@@ -24,6 +24,7 @@ namespace AdrianP
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc();
             services.AddProgressiveWebApp();
         }
 
