@@ -11,3 +11,6 @@ https://adport.herokuapp.com/
 2. tenha em sua maquina o dotnet core sdk versão 3.1;
 3. entre na pasta do projeto através do cmd e execute o comando *dotnet watch run*;
 4. E pronto, a aplicação estará sendo executada na sua maquina na porta 5001;
+
+#Transformação para APK
+https://appmaker.xyz/pwa-to-apk/verification/F99qRJbQYLcsXDenikU4
