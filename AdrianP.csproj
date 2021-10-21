@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="webessentials.aspnetcore.pwa" Version="1.0.65" />
+    <PackageReference Include="WebPush" Version="1.0.12" />
   </ItemGroup>
 
 </Project>
