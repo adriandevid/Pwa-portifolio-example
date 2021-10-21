@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebEssentials.AspNetCore.Pwa;
 
 namespace AdrianP
 {
@@ -25,7 +26,9 @@ namespace AdrianP
         {
             services.AddControllersWithViews();
             services.AddMvc();
-            services.AddProgressiveWebApp();
+            services.AddProgressiveWebApp(new PwaOptions { 
+                RegisterServiceWorker = false
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

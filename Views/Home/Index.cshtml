@@ -24,7 +24,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("./ServiceWorker")
+                navigator.serviceWorker.register("./serviceWorker.js")
                     .then((reg) => {
                         if (Notification.permission === "granted") {
                             $("#form").show();

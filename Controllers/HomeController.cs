@@ -92,6 +92,7 @@ namespace AdrianP.Controllers
             var vapidDetails = new VapidDetails(subject, publicKey, privateKey);
 
             var webPushClient = new WebPushClient();
+
             try
             {
                 webPushClient.SendNotification(subscription, message, vapidDetails);
