@@ -1,126 +1,90 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="container col-12" id="principal-content" style=" margin-bottom: 15em; margin-top: 15em;">
-    <div class="row">
-        <div class="col-12">
-            <div style=" width: 200px; height: 200px; border-radius: 100px 100px 100px 100px; background-color: white; margin: auto;">
-        </div>
-        </div>
-    </div>
-    <div class="row" style="text-align: center;">
-        <div class="col-12">  
-            <h2 class="mb-4" style="margin: auto; font-size: 30px;">Adrian Devid Menezes Santos</h2>
-        </div>
-        <div class="col-12" style="align-items: center;">
-            <i class="fa fa-code" style="font-size: 30px;"></i>
-            <p style="font-size: 25px;" id="title">
-                Programador C# <br />
-                desenvolver mobile, web e desktop.
-            </p>
-        </div>
-    </div>
+
+<h1>Subscribe to Push Notifications</h1>
+<div id="GiveAccess" style="display:none;">
+    Give access to making notifications:
+    <button id="PromptForAccessBtn">Prompt</button>
 </div>
-<div class="row col-12" style="background-color: white; color: black; margin: auto; padding-bottom: 20px;">
-    <div class="container">
-        <div class="row" style="padding-top: 40px;">
-            <div class="container">
-                <div class="row">
-                    <span class="bg-dark"
-                        style="font-family: 'fantasy'; font-size: 50px; color: white; width: 75px; text-align: center; margin: auto;">01</span>
-                </div>
-                <div class="row pt-5">
-                    <div class="col">
-                        <img src="~/image/Pessoa1.png" alt="">
-                    </div>
-                    <div class="col">
-                        <h1>
-                            Sobre
-                        </h1>
-                        <p style="font-size: 25px;">
-                            A .NET Core é uma plataforma para desenvolvimento de aplicações criada e mantida pela
-                            Microsoft como um
-                            projeto de código aberto. Sendo uma solução mais leve e modular que o .NET Framework e pode
-                            ser usada em
-                            diferentes sistemas operacionais como Windows, Mac e Linux.
-
-                            Assim, atualmente você pode desenvolver aplicações usando a .NET Core ou o .NET Framework
-                            que é
-                            suportado apenas no Windows e cuja versão mais atual é 4.8. (saindo do forno)
-
-                            Ambos os Frameworks compartilham muitos dos mesmos componentes e você pode compartilhar
-                            código entre os
-                            dois. No entanto, há diferenças fundamentais entre os dois e sua escolha vai depender do que
-                            você deseja
-                            realizar.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-5">
-            <span class="bg-dark"
-                style="font-family: 'fantasy'; font-size: 50px; color: white; width: 75px; text-align: center; margin: auto;">02</span>
-        </div>
-        <div class="row pt-5">
-            <div class="col" style="text-align: center; font-size: 40px;">
-                <h1>
-                    Portifolio
-                </h1>
-                <p style="font-size: 25px;"> Tecnologias </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-8 pt-4 col-sm-12 col-lg-12" id="">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card" style="border: none;">
-                                <div class="container" style="text-align: center;">
-                                    <img src="~/image/csharp.png" alt="" width="400px" height="400px">
-                                    <div class="card-body">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card" style="border: none;">
-                                <div class="container" style="text-align: center;">
-                                    <img src="~/image/angular.png" alt="" width="300px" height="300px">
-                                    <div class="card-body">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card" style="border: none;">
-                                <div class="container" style="text-align: center;">
-                                    <img src="~/image/javascript.png" alt="" width="300px" height="300px">
-                                    <div class="card-body">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-5 col-lg-6" style="text-align: center; margin: auto;">
-                <h1>SimuladorVN</h1>
-                <p  style="font-size: 30px;">
-                    SimuladorVN é um simulador ao qual representa o funcionamento da maquina de vonn neumann,
-                    mais apropriadamente a arquitetura de processsador de vonn neumann.
-                </p>
-            </div>
-            <div class="col-12 col-md-5 col-lg-6" style="text-align: center;">
-                <h1>API rest</h1>
-                <p style="font-size: 30px;">
-                    Tal API Rest funciona apresentando frameworks e bibliotecas em que de certo modo deixa o desenvolvimento do serviço ainda melhor e a qualidade impecavel.
-                </p>
-            </div>
-        </div>
-        <br />
-
-    </div>
+<div id="NoSupport" style="display:none;">
+    Your browser does not support Push Notifications or you have blocked notifications
 </div>
+<form asp-action="Index" id="form" style="display:none;">
+    <label for="client">Your name: </label>
+    <input id="client" name="client" /><br />
+
+    <input id="endpoint" name="endpoint" hidden />
+    <input id="p256dh" name="p256dh" hidden />
+    <input id="auth" name="auth" hidden />
+
+    <button type="submit">Subscribe</button>
+</form>
+@section Scripts {
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./ServiceWorker")
+                    .then((reg) => {
+                        if (Notification.permission === "granted") {
+                            $("#form").show();
+                            getSubscription(reg);
+                        } else if (Notification.permission === "blocked") {
+                            $("#NoSupport").show();
+                        } else {
+                            $("#GiveAccess").show();
+                            $("#PromptForAccessBtn").click(() => requestNotificationAccess(reg));
+                        }
+                    });
+            });
+        } else {
+            $("#NoSupport").show();
+        }
+
+        function requestNotificationAccess(reg) {
+            Notification.requestPermission(function (status) {
+                $("#GiveAccess").hide();
+                if (status == "granted") {
+                    $("#form").show();
+                    getSubscription(reg);
+                } else {
+                    $("#NoSupport").show();
+                }
+            });
+        }
+
+        function getSubscription(reg) {
+            reg.pushManager.getSubscription().then(function (sub) {
+                if (sub === null) {
+                    reg.pushManager.subscribe({
+                        userVisibleOnly: true,
+                        applicationServerKey: "@ViewBag.applicationServerKey"
+                    }).then(function (sub) {
+                        fillSubscribeFields(sub);
+                    }).catch(function (e) {
+                        console.error("Unable to subscribe to push", e);
+                    });
+                } else {
+                    fillSubscribeFields(sub);
+                }
+            });
+        }
+
+        function fillSubscribeFields(sub) {
+            $("#endpoint").val(sub.endpoint);
+            $("#p256dh").val(arrayBufferToBase64(sub.getKey("p256dh")));
+            $("#auth").val(arrayBufferToBase64(sub.getKey("auth")));
+        }
+
+        function arrayBufferToBase64(buffer) {
+            var binary = '';
+            var bytes = new Uint8Array(buffer);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+        }
+    </script>
+}
+
