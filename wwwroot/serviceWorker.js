@@ -154,6 +154,7 @@
             ]
         };
 
+
         const options = {
             body: 'Yay it works.',
             icon: 'images/icon.png',
