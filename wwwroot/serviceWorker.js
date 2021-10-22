@@ -161,7 +161,7 @@
             badge: 'images/badge.png'
         };
 
-        e.waitUntil(self.registration.showNotification("erer", options1));
+        e.waitUntil(self.registration.showNotification("erer", options));
     });
 
     self.addEventListener('notificationclick', function (e) {
