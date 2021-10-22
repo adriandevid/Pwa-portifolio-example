@@ -137,7 +137,7 @@
 
         var options = {
             body: body,
-            icon: "image/inconeDeApp 512.png",
+            icon: "/image/inconeDeApp 512.png",
             vibrate: [100, 50, 100],
             data: {
                 dateOfArrival: Date.now()
@@ -145,17 +145,21 @@
             actions: [
                 {
                     action: "explore", title: "Go interact with this!",
-                    icon: "IconeDeapp192x192.png"
+                    icon: "/image/IconeDeapp192x192.png"
                 },
                 {
                     action: "close", title: "Ignore",
-                    icon: "IconeDeapp192x192.png"
+                    icon: "/image/IconeDeapp192x192.png"
                 },
             ]
         };
+
         e.waitUntil(
-            self.registration.showNotification("Push Notification", options)
-        );
+            navigator.serviceWorker.getRegistration("/worker/").then(reg => {
+                console.log("About to show notification", reg);
+                reg.showNotification("Hello world!", options);
+            })
+        )
     });
 
     self.addEventListener('notificationclick', function (e) {
