@@ -154,12 +154,13 @@
             ]
         };
 
-        e.waitUntil(
-            navigator.serviceWorker.getRegistration("/worker/").then(reg => {
-                console.log("About to show notification", reg);
-                reg.showNotification("Hello world!", options);
-            })
-        )
+        const options = {
+            body: 'Yay it works.',
+            icon: 'images/icon.png',
+            badge: 'images/badge.png'
+        };
+
+        e.waitUntil(self.registration.showNotification("erer", options));
     });
 
     self.addEventListener('notificationclick', function (e) {
