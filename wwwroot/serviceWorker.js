@@ -155,13 +155,13 @@
         };
 
 
-        const options = {
+        const options1 = {
             body: 'Yay it works.',
             icon: 'images/icon.png',
             badge: 'images/badge.png'
         };
 
-        e.waitUntil(self.registration.showNotification("erer", options));
+        e.waitUntil(self.registration.showNotification("erer", options1));
     });
 
     self.addEventListener('notificationclick', function (e) {
